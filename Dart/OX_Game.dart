@@ -5,12 +5,12 @@ import 'dart:io';
 void main()
 {
   List ox = [
-    [' ',' ',' '],
-    [' ',' ',' '],
-    [' ',' ',' '],
+    ['1','2','3'],
+    ['4','5','6'],
+    ['7','8','9'],
   ];
   O_X check=O_X();
-  check.write_o(ox);
+  check.printck(ox);
   // print(ox);
 }
 class O_X
@@ -18,6 +18,12 @@ class O_X
   late String check_ox; 
   late int ck;
   var b1;
+  void printck(List ox)
+  {
+    b1=false;
+    check_ox='o';
+    printing(ox);
+  }
   void write_o(List ox)
   {
     stdout.write("Enter The Value Of O {1 to 9} : ");
@@ -336,7 +342,13 @@ class O_X
       b1=true;
       printing(ox);
     }
-    else if(ox[0][2]==ox[1][2] && ox[2][1] == ox[1][2] && ox[1][2]!=' ')
+        // anti-daigonal
+// 0,2
+// ---
+// 1,1
+// ---
+// 2,0
+    else if(ox[0][2]==ox[1][1] && ox[2][0] == ox[1][1] && ox[1][1]!=' ')
     {
       print("O Player Is Winner");
       b1=true;
@@ -399,7 +411,13 @@ class O_X
       b1=true;
       printing(ox);
     }
-    else if(ox[0][2]==ox[1][2] && ox[2][1] == ox[1][2] && ox[1][2]!=' ')
+    // anti-daigonal
+// 0,2
+// ---
+// 1,1
+// ---
+// 2,0
+    else if(ox[0][2]==ox[1][1] && ox[2][0] == ox[1][1] && ox[1][1]!=' ')
     {
       print("X Player Is Winner");
       b1=true;
@@ -518,3 +536,4 @@ class O_X
 //  1,0 | 1,1 | 1,2 
 // -----------------
 //  2,0 | 2,1 | 2,2
+
